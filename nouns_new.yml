@@ -1,0 +1,180 @@
+animals:
+	cat: {part: Noun, level: A1, countable: True, pluralform: cats, plural: False, article: a, sentence: &sentence 'This is a cat.', question: 'What is this?', answer: *sentence, meaning: pet}
+	dog: {part: Noun, level: A1, countable: True}
+	cow: {part: Noun, level: A1, countable: True}
+	horse: {part: Noun, level: A1, countable: True}
+	sheep: {part: Noun, level: A1, countable: True}
+	goat: {part: Noun, level: B1, countable: True}
+	rabbit: {part: Noun, level: A2, countable: True}
+	chicken: {part: Noun, level: A2, countable: True}
+	hen: {part: Noun, level: B1, countable: True}
+	cock: {part: Noun, level: B1, countable: True}
+
+	bird: {part: Noun, level: A1, countable: True}
+	snake: {part: Noun, level: A2, countable: True}
+	frog: {part: Noun, level: B1, countable: True}
+	fish: {part: Noun, level: A1, countable: True}
+	snail: {part: Noun, level: B1, countable: True}
+	
+	bear: {part: Noun, level: B2, countable: True}
+	wolf: {part: Noun, level: B2, countable: True}
+	squirrel: {part: Noun, level: B2, countable: True}
+	boar: {part: Noun, level: B2, countable: True}
+	hare: {part: Noun, level: B2, countable: True}
+	fox: {part: Noun, level: B2, countable: True}
+	hedgehog: {part: Noun, level: B2, countable: True}
+	elk: {part: Noun, level: C1, countable: True}
+	deer: {part: Noun, level: B2, countable: True}
+	
+	whale: {part: Noun, level: B1, countable: True}
+	dolphin: {part: Noun, level: B1, countable: True}
+	shark: {part: Noun, level: B1, countable: True}
+	octopus: {part: Noun, level: B2, countable: True}
+	ray: {part: Noun, level: B2, countable: True}
+	jellyfish: {part: Noun, level: B2, countable: True}
+	starfish: {part: Noun, level: B2, countable: True}
+	seahorse: {part: Noun, level: B2, countable: True}
+	seashell: {part: Noun, level: C1, countable: True}
+	shrimp: {part: Noun, level: B1, countable: True}
+	crab: {part: Noun, level: B2, countable: True}
+	lobster: {part: Noun, level: B2, countable: True}
+	seal: {part: Noun, level: B2, countable: True}
+	walrus: {part: Noun, level: B2, countable: True}
+vehicles:
+	- [a,car,A1]
+	- [a,bus,A1]
+	- [a,tram,A2]
+	- [a,trolleybus,A2]
+	- [a,bicycle,A2]
+	- [a,scooter,A2]
+	- [a,motorcycle,A2]
+	- [a,plane,A1]
+	- [a,helicopter,A2]
+	- [a,boat,A1]
+	- [a,ship,A2]
+	- [a,rocket,B2]
+	- [a,truck, B1]
+	- [a,fire engine, B2]
+	- [an,ambulance, B2]
+clothes:
+	- [a,dress,A1]
+	- [a,t-shirt,A1]
+	- [a,vest,C1]
+	- [a,sock,A2]
+	- [P,socks,A2]
+	- [P,trousers,A1]
+	- [a,shirt,A1]
+	- [a,blouse,A1]
+	- [a,jacket,A1]
+	- [a,slipper,A2]
+	- [P,slippers,A2]
+	- [a,shoe,A1]
+	- [P,shoes,A1]
+	- [a,boot,A1]
+	- [a,coat,A1]
+	- [a,cap,A2]
+	- [a,hat,A1]
+	- [a,scarf,A2]
+	- [a,sandal,B1]
+	- [P,sandals,B1]
+	- [P,jeans,A1]
+	- [a,glove,A2]
+	- [P,gloves,A2]
+	- [a,mitten,A2]
+	- [P,mittens,A2]
+	- [P,tights,A2]
+	- [P,pajamas,A1]
+	- [a,belt,A2]
+	- [a,sweatshirt,B1]
+	- [P,shorts,A2]
+	- [P,sports trousers,A1]
+food:
+	- [U,meat,A1]
+	- [U,fish,A1]
+	- [U,red fish,A1]
+	- [U,chicken,A2]
+	- [U,cheese,A1]
+	- [U,butter,A1]
+	- [U,sausage,A2]
+	- [U,porridge,A1]
+	- [U,soup,A1]
+	- [U,bread,A1]
+	- [a,sandwich,A1]
+	- [U,spaghetti,A2]
+	- [U,pasta,A2]
+	- [U,rice,A2]
+	- [U,buckwheat,A2]
+school:
+	- [a, pen,A1]
+	- [a, felt-tip pen,B2]
+	- [a, pencil,A1]
+	- [a, pencil sharpener,B1]
+	- [an,eraser,A2]
+	- [a, rubber, A2]
+	- [a, blackboard, A2]
+	- [a, whiteboard, A2]
+	- [a, ruler, A2]
+	- [a, workbook,A2]
+	- [a, notebook, A2]
+	- [a, book, A1]
+	- [a, school bag, A2]
+	- [a, satchel, B2]
+	- [a, pencil case, A2]
+	- [a,classroom, A1]
+	- [a, desk, A1]
+	- [a, chair, A1]
+	- [a, teacher, A1]
+	
+	- [P, scissors, A2]
+	- [U, glue, A2]
+	- [a, computer, A1]
+	- [a, mouse, A2]
+	- [a, keyboard, A2]
+	- [a, monitor, B2]
+	- [a, television, A1]
+	- [a, remote control, B1]
+	- [a, mobile phone, A1]
+vegetables:
+	- [U, carrot, A2]
+	- [U, cabbage, B1]
+	- [U, potato, A1]
+	- [U, tomato, A1]
+	- [a, pepper, B1]
+	- [U, beet, B1]
+	- [U, onion, A2]
+	- [U, garlic, A2]
+	- [U, lettuce, B1]
+	- [U, broccoli, B1]
+	- [U, cauliflower, B2]
+	- [U, cucumber, B1]
+	- [a, mushroom, A2]
+	- [U, aubergine, B2]
+	- [U, corn, B1]
+	- [U, radish, B1]
+	- [U, courgette, B2]
+	- [U, pumpkin, B2]
+fruits:
+	- [an, apple, A1]
+	- [a, pear, A2]
+	- [a, cherry, B2]
+	- [a, peach, B1]
+	- [an, apricot, B1]
+	- [a, banana, A1]
+	- [a, grape, A2]
+	- [a, plum, A2]
+	- [an, orange, A1]
+	- [a, mandarin, A2]
+	- [a, kiwi, B1]
+	- [a, pineapple, B1]
+	- [a, lemon, A2]
+	- [a, watermelon, B1]
+	- [a, melon, A2]
+berries:
+	- [a, strawberry, B1]
+	- [a, raspberry, B1]
+	- [a, blueberry, B1]
+	- [a, blackberry, B2]
+	- [a, gooseberry, B2]
+	- [a, bilberry, B2]
+	- [a, redcurrant, B2]
+	- [a, currant, B2]

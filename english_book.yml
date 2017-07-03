@@ -1,0 +1,90 @@
+Goal: Listen + answer + ask
+	ask about his/her name, age, be from, feelings
+	statement = 'ask about his name', response = 'what's his name?',  feedback = "he's Andreas."
+	Hi, Hi, none
+	I'm Andreas. what's your name, i'am Sophia, None
+	
+
+lesson 1:
+	excercise 1: listen and repeat
+		greeting: [hello, hi, good morning, good day, good afternoon, good evening]
+		farewell: [goodbye, bye, bye bye, good night, have a nice sleep, see you, see you soon, take care]
+	exercise 3: listen and repeat
+		dialog = [greeting, introduction, farewell]
+		introduction/meeting:
+			name: i am Sophia
+			age: i am five
+			be from: i am from Ukraine
+			emotions/feelings: i am fine
+			nice to meet you
+	exercise 4: look and say
+		clock + good <part of the day>
+	exercise 5: ask
+		name, age, be from, feelings
+lesson 2:
+	excercise 1: listen and repeat
+		friend, school, teacher, parrot, who's that?
+	excercise 2: listen and choose
+		The teacher’s name is Miss Parker.
+	exercise 3: listen and repeat
+		This is my sister, Who's that?
+	exercise 4: look and say
+		Hello, everyone! This is ...
+	exercise 5: look and say and write
+		Who's that. That's my friend/teacher
+lesson 3:
+	nothing
+	
+Dialog: each dialogs have common parts and topics to talk about what may be mixed!!!
+	(greeting)
+	(indtroduction)
+	
+	(farewell)
+
+Interaction format:
+	statement -> statement 				= Hi -> Hi
+	instruction -> question -> answer	= ask my name -> what's your name? -> i'm Alex
+	statement + question -> answer		= i'm Alex. what's your name? -> i'm Sophia
+
+Interaction include two person and subject talk. 
+	
+learningitem:
+	greeting: {part: Greetings}
+	name: {part: Name} % person
+	age: {part: Age} % person
+
+Name.get_statement (person.form(2))
+
+Ask personal information:	
+	-[Greeting]
+	-[Name.instruction]
+	-[Age.instruction]
+	-[Country.instruction]
+	-[Nationality.instruction] 
+	-[Farewell]
+
+		- {word: 'nationality', part: Nationality, states: [{sentence: 1},{question: 2}], answer: [{sentence: 1}]} 
+	
+Give/ask personal information: person(picture, name, age, country, nationality) = exercise(repeat|answer)
+	-[Greeting], answer = same as sentence
+	-[Name.sentence,Name.question], answer = Name.sentence
+	-[Age.sentence,Age.question]
+	-[Country.sentence,Country.question]
+	-[Nationality.sentence,Nationality.question] 
+	-[Farewell]
+	
+	
+	-[Greeting]
+	-[Name.instruction]
+	-[Age.instruction]
+	-[Country.instruction]
+	-[Nationality.instruction] 
+	-[Farewell]
+Introduce family and close friends: person (family[persons])
+Tell/ask the time/day: [monday - sunday], [morning, day, noon, midday,evening, night, midnight], person
+	[ask][today is Monday]
+	[ask][it's 2:15]
+	[ask][i get up at 7:10 in the morning.]
+	[][i go to bed at 11 o'clock in the evening]
+	[][...]
+Express/Enquire ability

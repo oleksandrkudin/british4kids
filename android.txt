@@ -1,0 +1,3 @@
+title=English for Kids v3
+author=Oleksandr Kudin
+orientation=landscape

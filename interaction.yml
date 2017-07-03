@@ -1,0 +1,25 @@
+persons:
+	olya: {part: Person, name: Olya, visual_source: 'data/olya.jpg', age: three, sex: female, country: Ukraine, nationality: ukrainian, 'favourite colour': yellow, 'favourite drink': 'orange juice'}
+	sophia: {part: Person, name: Sophia, visual_source: 'data/sophia.jpg', age: five, sex: female, country: Ukraine, nationality: ukrainian, 'favourite colour': red, 'favourite drink': 'compote'}
+	oleksandr: {part: Person, name: Oleksandr, visual_source: 'data/images/oleksandr.png', age: 'thirty six', sex: male, country: Ukraine, nationality: ukrainian, 'favourite colour': blue, 'favourite drink': 'water'}
+	andreas: {part: Person, name: Andreas, visual_source: 'data/images/persons/andreas.jpg', age: 'seven', sex: male, country: Greece, nationality: greek, 'favourite colour': green, 'favourite drink': 'milk'}
+	dona: {part: Person, name: Dona, visual_source: 'data/images/persons/dona.jpg', age: 'eight', sex: female, country: Italy, nationality: italian, 'favourite colour': orange, 'favourite drink': 'pineapple juice'}
+	eva: {part: Person, name: Eva, visual_source: 'data/images/persons/eva.jpg', age: 'nine', sex: female, country: Argentina, nationality: argentinian, 'favourite colour': white, 'favourite drink': 'hot chocolate'}
+	filipe: {part: Person, name: Filipe, visual_source: 'data/images/persons/filipe.jpg', age: 'ten', sex: male, country: Portugal, nationality: portuguese, 'favourite colour': brown, 'favourite drink': 'apple juice'}
+	max: {part: Person, name: Max, visual_source: 'data/images/persons/max.jpg', age: 'eleven', sex: male, country: Britain, nationality: british, 'favourite colour': black, 'favourite drink': 'lemonade'}
+give personal information:
+	person1: [sophia,olya,andreas,dona,eva,filipe,max]
+	person2: [student]
+	interaction:
+		- {word: 'greetings', part: Greetings,  states: [sentence], answer: [sentence]}
+		- {word: 'name',  part: Name, states: [[sentence,person1,1], [question,person2,2]], answer: [[sentence,person2,1]]}
+		- {word: 'age', part: Age, states: [[sentence,person1,1], [question,person2,2]], answer: [[sentence,person2,1]]}
+		- {word: 'country', part: Country, states: [[sentence,person1,1], [question,person2,2]], answer: [[sentence,person2,1]]} 
+		- {word: 'farewell', part: Farewell, states: [sentence], answer: [sentence]}
+ask personal information:
+	person1: [andreas,dona,eva,filipe,max]
+	person2: []
+	interaction:
+		- {word: 'name',  part: Name, states: [[instruction,person1,3]], answer: [[question,person1,3]]}
+		- {word: 'age',  part: Age, states: [[instruction,person1,3]], answer: [[question,person1,3]]}
+		- {word: 'country', part: Country, states: [[instruction,person1,3]], answer: [[question,person1,3]]}
