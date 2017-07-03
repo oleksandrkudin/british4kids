@@ -196,6 +196,7 @@ Each class to populate statements may define
 
 """
     fields = {'level': None, 'countable': True, 'uncountable': False, 'pluralform': None, 'plural': False, 'article': None, 'live': False}
+    #fields.update (Word.fields)
     _statement_patterns = [['%s %s %s.']] #defines patters for class, class related
     _question_patterns = [['%s %s %s?']]
     @classmethod
