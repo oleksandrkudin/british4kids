@@ -1,0 +1,37 @@
+Software: Jira, Bugzilla, GitHub -> Issues -> New issue (todos, bugs, feature requests)
+Template
+	• ID / Name: 
+		Keep it brief and use correct terms. A best practice is to include the name of the feature where you found an issue. A good example would be `CART – Unable to add new item to my cart`.
+	• Description/ Summary:
+		If you feel the name is not sufficient, briefly explain the bug with words. Phare it in a natural language. Keep in mind that your description might be used to search in your bug tracking application so be sure to use the correct language.
+	• Environment:
+		Depending on your browser, operating system, zoom level and screen size, websites may behave differently from one environment to another. Make sure your developers know your technical environment.
+	• Source URL:
+		Make it easy for your developers spot the problem by including the URL of the page where you found the bug. Big time saver!
+	• Visual Proof:
+		A picture is worth a thousand words. Although it might not be enough, a visual element like a screenshot or a video will help your developers understand the problem better and faster.
+	• Steps to reproduce:
+		A screenshot is a proof that you had a problem but keep in mind that your developer might not be able to reproduce the bug. Describe with as much detail as possible the steps you took before you encountered the bug.
+	• Expected Results & Actual Results:
+		Explain what results you expected and be as specific as possible. The app doesn’t work as expected is not useful. Also, describe what result you actually experienced.
+	• Optional:
+		You could also include extra information such as the severity (critical, major, minor, trivial, enhancement), the priority (high, medium, low), the name of the reporter, the person assigned or a due date.
+
+
+1. Solved:
+	languageitem.Statements.accumulate() produces dublicates. Example -> print from Statements.sentence(): 
+	states: ["i can't drive a car.", 'i can drive a car.', 'can you drive a car?', "i can't drive a car.", 'i can drive a car.', 'can you drive a car?']
+
+	res <class 'languageitem.SailVehicles'> ["i can't sail a boat.", 'i can sail a boat.', 'can you sail a boat?']
+	res <class 'languageitem.Vehicles'> []
+	res <class 'languageitem.NounUsageForm'> []
+	res <class 'languageitem.Noun'> ["i can't sail a boat.", 'i can sail a boat.', 'can you sail a boat?']
+	res <class 'languageitem.Word'> []
+
+	For class Noun it take values from SailVehicles
+
+	languageitem.Statements.accumulate() -> invoke function 
+	There is a issue what we statically bind 'function' to upper class for which accumulate is invoked!!! Pass function name - not a way as inheritance will not work - we need to pass classified name like cls.function
+
+	It is necessary to find a way to invoke cls.__dict__['function_name'] with inheritance!!!
+	solution: eval ('cls.function_name') but we need output to save

@@ -64,19 +64,25 @@ class TxtAudioResource (str):
 class Statements ():
     """ work with statments/questions/answers/instructions - means to learn language items."""
     @classmethod
-    def accumulate (cls, self, function, accumulated_field):
-        """ Walk via hierarchy of classes started from cls. If class has attribute 'accumulated_field', get values returned by 'function' and extend resulting list with them.
+    def accumulate (cls, self, get_values_function_name, accumulated_field):
+        """ Walk via hierarchy of classes started from cls. If class has attribute 'accumulated_field', get values returned by 'get_values_function_name' function and extend resulting list with them.
 Return summary list of values.
-Problem: method influence 'answer' method - integrity is lost!!! Suggest that 'answer' is the first statement in first class in hierarchy - so depends on order of super classes and mulpiple inheritance.
-Before adding values from list they must be added in reverse order"""
+Problem: method influence 'answer' method - integrity is lost!!! Suggest that 'answer' is the first statement in first class in hierarchy - so depends on order of super classes and multiple inheritance.
+Before adding values from list they must be added in reverse order.
+
+Previous version:
+There is a issue what we statically bind 'function' to upper class for which accumulate is invoked!!!
+    pass function name - not a way as inheritance will not work - we need to pass classified name like cls.function"""
         visited_classes = set()
         def go_through_classes (cls, self):
             #print ('cls:', cls, cls.__dict__[accumulated_field] if accumulated_field in cls.__dict__ else [])
             res = []
             if cls.__bases__:
                 #print ('bases')
-                res = res + (function (self)[::-1] if accumulated_field in cls.__dict__ else [])
-                #print ('res', res)
+                #res = res + (function (self)[::-1] if accumulated_field in cls.__dict__ else []) #old version - function in statically binded to highest class function.
+                res = res + ( eval('cls.%s(self)' % get_values_function_name)[::-1] if accumulated_field in cls.__dict__ else [])
+               
+                #print ('res', cls, res)
                 for i_class in cls.__bases__:
                     if i_class in visited_classes:
                         break
@@ -88,7 +94,8 @@ Before adding values from list they must be added in reverse order"""
                 #print ('not bases')
                 if accumulated_field in cls.__dict__ and not (cls in visited_classes):
                     visited_classes.add (cls)
-                    res.extend ( function (self)[::-1] )
+                    #res.extend ( function (self)[::-1] )
+                    res.extend ( eval('cls.%s(self)' % get_values_function_name)[::-1] )
                     return res
                 else:
                     return []
@@ -116,8 +123,8 @@ Before adding values from list they must be added in reverse order"""
     @classmethod
     def question (cls, self=None):
         #print (cls._question_patterns, )
-        seq = cls.accumulate(self,cls.get_questions,'_question_patterns') + (self.questions if self and 'questions' in self.__dict__ else [])
-        print ('questions:', seq)
+        seq = cls.accumulate(self,'get_questions','_question_patterns') + (self.questions if self and 'questions' in self.__dict__ else [])
+        #print ('questions:', seq)
         random.shuffle(seq)
         return random.choice(seq)
     @classmethod
@@ -126,12 +133,12 @@ Before adding values from list they must be added in reverse order"""
 Should be implemented via more deterministic method = only one answer must correspond to one question"""
         #return self.sentence()
         #print ('answer:', self.accumulate(self))
-        return cls.accumulate(self,cls.get_statements,'_statement_patterns')[-1]
+        return cls.accumulate(self,'get_statements','_statement_patterns')[-1]
     @classmethod
     def sentence (cls, self=None):
         #random.shuffle
-        seq = cls.accumulate(self,cls.get_statements,'_statement_patterns') + (self.states if self and 'states' in self.__dict__ else [])
-        #print ('states:', seq)
+        seq = cls.accumulate(self,'get_statements','_statement_patterns') + (self.states if self and 'states' in self.__dict__ else [])
+        print ('states:', seq)
         random.shuffle(seq)
         return random.choice(seq)
 
@@ -205,6 +212,7 @@ Each class to populate statements may define
     @classmethod
     def _question_values (cls, self): #if patterns class related - then values should be class related too but add dynamic - should be redefined 
         return [('who' if self.live else 'what', ToBe.form(plural=self.plural, person=3, time='presence'), this_pronoun.form(plural=self.plural))]
+        #return [('what' if not self or not self.live else 'who', ToBe.form(plural=self.plural, person=3, time='presence'), this_pronoun.form(plural=self.plural))]
     classmethod
     def answer (cls, self=None):
         return Noun.get_statements(self)[0]
@@ -577,7 +585,7 @@ class PersonRelatedProperty (Phrase):
     
     def __new__ (cls, property_name):
         class _ClassProperty(PersonRelatedProperty):
-            _question_patterns = [["what is %s {0}?".format(property_name),"what's %s {0}?".format(property_name)]]
+            #_question_patterns = [["what is %s {0}?".format(property_name),"what's %s {0}?".format(property_name)]]
             @classmethod
             def _question_values (cls, self):
                 return [(possessive_pronoun(self.grammar_form, self.sex))]
@@ -615,7 +623,7 @@ class PersonalProperty(PersonRelatedProperty):
     def __new__ (cls, property_name):
         class _ClassProperty(PersonRelatedProperty(property_name)):
             _statement_patterns = [['%s %s %s.'], ["%s'%s %s."]]
-            #_question_patterns = [["what is %s {0}?".format(property_name),"what's %s {0}?".format(property_name)]]
+            _question_patterns = [["what is %s {0}?".format(property_name),"what's %s {0}?".format(property_name)]]
             @classmethod
             def _statement_values (cls, self):
                 return [(personal_pronoun(self.grammar_form, self.sex), ToBe.form(person=self.grammar_form), self.__dict__[property_name]),
@@ -624,13 +632,28 @@ class PersonalProperty(PersonRelatedProperty):
         _ClassProperty.property_name = property_name
         #print ('PersonalProperty, _question_patterns', _ClassProperty._question_patterns)
         return _ClassProperty
+
+class AbstractProperty(PersonRelatedProperty):
+    #property_name = 
+    def __new__ (cls, property_name):
+        class _ClassProperty(PersonRelatedProperty(property_name)):
+            pass
+        _ClassProperty.property_name = property_name
+        return _ClassProperty
             
 class Name (PersonalProperty('name'), PossessiveProperty('name')):
     pass
 #print ('Name, _question_patterns', Name._question_patterns)
     
-class Age (PersonalProperty('age'), PersonalProperty('age long')):
+
+#class Age (PersonalProperty('age'), PersonalProperty('age long')):
+class Age (AbstractProperty('age')):
+    _statement_patterns = [['%s %s %s.', '%s %s %s years old.'], ["%s'%s %s.", "%s'%s %s years old."]]
     _question_patterns = [["how old %s %s?"]]
+    @classmethod
+    def _statement_values (cls, self):
+        return [(personal_pronoun(self.grammar_form, self.sex), ToBe.form(person=self.grammar_form), self.__dict__[cls.property_name]),
+                (personal_pronoun(self.grammar_form, self.sex), ToBe.short_form(person=self.grammar_form), self.__dict__[cls.property_name])]
     @classmethod
     def _question_values (cls, self):
         return [(ToBe.form(person=self.grammar_form), personal_pronoun(self.grammar_form, self.sex))]

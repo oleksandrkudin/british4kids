@@ -121,7 +121,7 @@ class Catalog (dict):
             
             li = languageitem.__dict__[part](i_word,audio_source,**i_parameters)
             lm = Sentence ([StatementFrame (li, text_sentence if text_sentence else li.sentence(li)),
-                            QuestionFrame (li, text_question if text_question else li.question(), text_answer if text_answer else li.answer())
+                            QuestionFrame (li, text_question if text_question else li.question(li), text_answer if text_answer else li.answer(li))
                 ], visual_source)
 
             self['vocabulary'][topic][li] = lm
