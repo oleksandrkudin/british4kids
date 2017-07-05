@@ -550,7 +550,9 @@ class RememberScreen(Screen):
         self.load_frame (frame=1)
         
     def on_pre_leave (self):
-        self.children[0].remove_widget (self.children[0].children[0])
+        #self.children[0].remove_widget (self.children[0].children[0])
+        while len(self.children[0].children) > 1:
+            self.children[0].remove_widget (self.children[0].children[0])
     def next_frame (self, *args):
         #self.children[0].remove_widget (self.children[0].children[0])
         #self.game.next_frame ()

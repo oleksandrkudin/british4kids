@@ -1,4 +1,16 @@
-"""Word to learn - should be every aspect of language and grammar.
+"""
+LanguageItem is the smallest language item to learn. It could be words, phrases or even whole sentences.
+But the main idea is not to learn languageitem separatelly but via sentences (statements, questions, answers) that is usage examples.
+So languageitem is original data to learn and represents
+    - language part
+    - extra information to help to learn languageitem (statements, questions, answers)
+
+WhatIf: create separate LanguageItem and UsageCases (tree structure that can grow, each node should contain appropriate difficulties level)
+LanguageItem + UsageCases = Language (writing, reading, listening, speaking skills)
+
+UsageCases is just 
+
+Word to learn - should contain every aspect of language and grammar.
 Information about part of sentence.
 Questions for better learning and understanding.
 
@@ -11,9 +23,15 @@ LanguageItem
     Phrase/Idiom
     
 
-Behavior
+LanguageItem behavior without UsageCases
     spelling (text) - it is a main thing = so it subclass of str + extra data attached to it :)
-    Extra information could be used to build sentences/questions.
+    play sound - same for all usage
+    different grammar form to help create sentences
+    Extra information could be used to build sentences/questions - should be put to UsageCases
+    Visual respresentation is different for UsageCases or could be the same
+
+UsageCases behavior
+    provide set of patterns for statements, questions, answers what is relevant to LanguageItem
 
 Levels
     A1 beginner (Basic)
@@ -39,6 +57,12 @@ import random
 import re
 import operator
 
+#difference in naming in 2.7 and 3.4
+try:
+    from itertools import zip_longest as zip_longest
+except:
+    from itertools import izip_longest as zip_longest
+
 vowels = ['a', 'e', 'i', 'o', 'u']
 
 
@@ -54,15 +78,39 @@ class TxtAudioResource (str):
     def play (self, delay = 0):
         Clock.schedule_once (partial(self.play_sound,self),delay)
     def play_sound (self, *largs):
+        #print (time.strftime('%M:%S'))
         if self.audio_source and os.path.exists(self.audio_source):
             _sound = SoundLoader.load(self.audio_source)
             _sound.play()
         else:
             if platform == "android":
                 tts.speak (self)
+    @classmethod
+    def play_list (cls, txt_audio_resource_list, delay, *largs):
+        """play list of elements with desired time interval. Elements should be played one by one in turn and depending on previous run. Clock.schedule_once will run in recursion."""
+        if txt_audio_resource_list:
+            txt_audio_resource_list[0].play (delay)
+            Clock.schedule_once (partial(cls.play_list,txt_audio_resource_list[1:],delay),delay)  
 
 class Statements ():
-    """ work with statments/questions/answers/instructions - means to learn language items."""
+    """work with statments/questions/answers/instructions - means to learn language items.
+sentences are only patterns what should be populated by learning items and auxiliary words.
+
+Attributes that may be redefined in sub classes 
+Data Class:
+    _statement_patterns - list of pattern groups
+    _question_patterns - list of pattern groups
+Function:
+    _question_values - list of values to be maped to whole pattern group
+    _statement_values - list of values to be maped to whole pattern group
+
+
+Class public interface
+    question - provide randomly selected question from all accululated questions that were got passing classes hierarchy. Answer for all these question should be only one!
+    answer - provide first statement in the first super class (assumption)
+    sentence - provide randomly selected statement from all accululated statements that were got passing classes hierarchy
+
+"""
     @classmethod
     def accumulate (cls, self, get_values_function_name, accumulated_field):
         """ Walk via hierarchy of classes started from cls. If class has attribute 'accumulated_field', get values returned by 'get_values_function_name' function and extend resulting list with them.
@@ -103,7 +151,7 @@ There is a issue what we statically bind 'function' to upper class for which acc
     @staticmethod
     def _format (patterns_groups, values): #static
         res = []
-        for i_value, i_pattern_group in zip(values, patterns_groups):
+        for i_pattern_group, i_value  in zip_longest(patterns_groups, values):
             for i_pattern in i_pattern_group:
                 #print ('i_pattern, i_value', i_pattern, i_value)
                 res.append ( i_pattern % i_value if i_value else i_pattern)
@@ -136,9 +184,8 @@ Should be implemented via more deterministic method = only one answer must corre
         return cls.accumulate(self,'get_statements','_statement_patterns')[-1]
     @classmethod
     def sentence (cls, self=None):
-        #random.shuffle
         seq = cls.accumulate(self,'get_statements','_statement_patterns') + (self.states if self and 'states' in self.__dict__ else [])
-        print ('states:', seq)
+        #print ('states:', seq)
         random.shuffle(seq)
         return random.choice(seq)
 
@@ -161,7 +208,7 @@ text should be object of TxtAudioResource what contain source to audio
     def get_article (self):
         """Should be moved to other class (Noun, Adjective)"""
         if self.countable and not self.plural:
-            if self[0] in vowels: return 'an'
+            if self[0].lower() in vowels: return 'an'
             else: return 'a'
     def default (self):
         for key, value in self.fields.items():
@@ -250,7 +297,9 @@ class NounGeneralForm (Noun):
         return [(self.general_form())]
 
 class Adjective (Word):
-    pass
+    @classmethod
+    def _question_values (cls, self = None):
+        return []
 
 
 class Food (NounGeneralForm):
@@ -359,7 +408,7 @@ class WrittenTool (NounUsageForm):
 
 
 class Professions (NounUsageForm):
-    _statement_patterns = [["I'm %s by profession.", 'I want to be %s.', "I don't want to be %s.", 'Do you want to be %s.']]
+    _statement_patterns = [["I'm %s by profession.", 'I want to be %s.', "I don't want to be %s.", 'Do you want to be %s?']]
     def __new__ (cls, *args, **kwargs):
       self = Noun.__new__ (cls, *args, **kwargs)
       self.live = True
@@ -367,35 +416,21 @@ class Professions (NounUsageForm):
       
 class Feelings (Adjective):
     _statement_patterns = [["I'm %s.", 'Are you %s?']]
-    _question_patterns = [["how are you?",'how do you feel?']]
-#    def question (self):
-#        questions = ["how are you?",'how do you feel?']
-#        return random.choice(questions)
-
-    
+    _question_patterns = [["how are you?",'how do you feel?']]    
 
 class Weather (Adjective):
     _statement_patterns = [["it's %s.",'do you like %s weather?', 'i like %s weather.', "i don't like %s weather."]]
     _question_patterns = [["what's the weather like?","how's the weather?"]]
-#    def question (self):
-#        questions = ["what's the weather like?","how's the weather?"]
-#        return random.choice(questions)
-
 
 class Colour (Adjective):
     _statement_patterns = [["this is the %s colour.",'is %s, your favourite colour?', 'the %s colour, is not my favourite.', "my favourite colour, is %s."]]
     _question_patterns = [["what colour is this?"]]
-#    def question (self):
-#        questions = ["what colour is this?"]
-#        return random.choice(questions)
       
 class Room (Noun):
     _question_patterns = [["what room %s %s?"]]
     @classmethod
     def _question_values (cls, self):
         return [(ToBe.form(plural=self.plural, person=3, time='presence'), this_pronoun.form(plural=self.plural))]
-#    def question (self):
-#        return ' '.join(['what room', ToBe.form(plural=self.plural, person=3, time='presence'), this_pronoun.form(plural=self.plural)]) + '?'
 
 class Furniture (NounUsageForm):
     _statement_patterns = [["where is %s, in your flat?"]]
@@ -413,8 +448,7 @@ class Time (Adjective):
     _question_patterns = [['what time is it?']]
     fields = Noun.fields.copy()
     fields.update ({'order': 0})
-#    def question (self):
-#        return 'what time is it?'
+
 
 class OrderedPeriod (Time):
     @classmethod
@@ -427,19 +461,16 @@ class OrderedPeriod (Time):
 class Weekday (OrderedPeriod):
     _statement_patterns = [["%s, is the %s day, of the week."]]
     _question_patterns = [["what is, the %s day, of the week?"]]
-#    def question (self):
-#        return 'what is, the %s day, of the week?' % self.order
 
 class Month (OrderedPeriod):
     _statement_patterns = [["%s, is the %s month, of the year."]]
     _question_patterns = [['what is, the %s month, of the year?']]
-#    def question (self):
-#        return 'what is, the %s month, of the year?' % self.order
 
-class Season (Noun):
+class Season (NounUsageForm):
     _question_patterns = [['what season is this?']]
-#    def question (self):
-#        return 'what season is this?'
+    @classmethod
+    def _question_values (cls, self = None):
+        return []
 
 class Verb (Word):
     fields = {'level': None}

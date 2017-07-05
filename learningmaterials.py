@@ -310,9 +310,16 @@ class RememberGame (list):
         if self.frame == 1:
             #self.next_frame()
             delay = 2
+            """
+            #replaced by new version of play card with the same interval 
             for card in self.remember:
                 card[0].play (delay)
                 delay += 2
+            """
+            #new version
+            remember_languageitem_list = [card[0] for card in self.remember] #get languageitem to play
+            languageitem.TxtAudioResource.play_list (remember_languageitem_list,delay)
+            
         elif self.frame == 2:
             pass
             #self.next_frame()

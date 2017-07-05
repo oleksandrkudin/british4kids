@@ -35,3 +35,20 @@ Template
 
 	It is necessary to find a way to invoke cls.__dict__['function_name'] with inheritance!!!
 	solution: eval ('cls.function_name') but we need output to save
+	
+2. Solved:
+	a IT engineer - must be an IT engineer
+	it was compared to only lower letter - did lower first letter of the word
+3. Solved:
+	Adjectives cannot provide question statements! i_pattern, i_value how are you? sad => how are you? % sad
+		return cls._format (cls._question_patterns, cls._question_values(self))
+		File "C:\Python34\Projects\British4Kids\languageitem.py", line 127, in _format
+		res.append ( i_pattern % i_value if i_value else i_pattern)
+		TypeError: not all arguments converted during string formatting
+4. Solved:
+	This is None grass - wrong sentance - no article should be
+	Edit yaml file wiht uncountable=True
+5. Solved:
+	Question for Proffession without "?"
+6.
+	Sick - is not correct definition.

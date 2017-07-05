@@ -71,7 +71,6 @@ def weighted_choice (choices, weights, count=1):
         return res[0]
     else:
         return res
-        
 
 if __name__ == '__main__':
 

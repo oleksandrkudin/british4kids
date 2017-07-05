@@ -297,7 +297,7 @@ house:
 	playground: {part: Noun, states: ['a playground, is an area of land, where children can play.']}
 	tree: {part: Noun, states: ['a tree, is a tall plant, with a thick stem, that has branches, coming from it and, leaves.']}
 	sand: {part: Noun, countable: False, uncountable: True}
-	grass: {part: Noun, countable: False, states: ['grass, is a plant, with narrow green leaves, that grows, close to the ground.']}
+	grass: {part: Noun, countable: False, uncountable: True, states: ['grass, is a plant, with narrow green leaves, that grows, close to the ground.']}
 	flower: {part: Noun}
 time:
 	one o'clock: {part: Time, visual_source: 'data/images/time/analog_clock_0100.jpg'}
