@@ -165,39 +165,39 @@ berries:
 	wild strawberry: {part: Berries, level: B1}
 	mulberry: {part: Berries, level: B2}
 school:
-	pen: {part: WrittenTool, level: A1, states: ['a pen, is a long, thin object.',  'you use a pen, to write, or draw, in ink.']}
-	felt-tip pen: {part: WrittenTool, level: B2, states: ['a felt-tip pen, is a pen, with coloured ink, for colouring pictures.']}
-	pencil: {part: WrittenTool, level: A1, states: ['a pencil, is a long, thin, wooden object.', 'you use a pencil, to write, or draw with.']}
-	marker: {part: WrittenTool, states: ['a marker, is a thick pen, used for writing on boards.']}
-	chalk: {part: WrittenTool, uncountable: True, states: ['a chalk, is a small stick, of soft, white rock.', 'a chalk, is used for writing, and drawing.']}
+	pen: {part: WrittenTool, level: A1}
+	felt-tip pen: {part: WrittenTool, level: B2}
+	pencil: {part: WrittenTool, level: A1}
+	marker: {part: WrittenTool}
+	chalk: {part: WrittenTool, uncountable: True}
 	
-	pencil sharpener: {part: Noun, level: B1,  states: ['a pencil sharpener, is used, to make pencils sharp.']}
-	eraser: {part: Noun, level: A2, states: ['an eraser, is American word, for rubber.']}
-	rubber: {part: Noun, level: A2, states: ['a rubber, is used, to remove pencil marks, from paper.']}
-	blackboard: {part: Board, level: A2, states: ['a blackboard, is a large board, with a dark surface.', 'teachers and students, write on blackboard, with chalk.']}
-	whiteboard: {part: Board, level: A2, states: ['a whiteboard, is a large board, with a white surface.', 'teachers and students, write on whiteboard, with marker.']}
-	ruler: {part: Noun, level: A2, states: ['a ruler, is a flat, straight, stick.', 'a ruler, is used, to measure things.']}
+	pencil sharpener: {part: Noun, level: B1}
+	eraser: {part: Noun, level: A2}
+	rubber: {part: Noun, level: A2}
+	blackboard: {part: Board, level: A2}
+	whiteboard: {part: Board, level: A2}
+	ruler: {part: Noun, level: A2}
 	
-	workbook: {part: Noun, level: A2, states: ['a workbook, is a book, with questions and exercises', 'a workbook, is used, to learn something.']}
-	notebook: {part: Noun, level: A2, meaning: book, states: ['a notebook, is a book, with empty pages, that you can write in.']}
-	book: {part: Noun, level: A1, states: ['a book, is a set of pages, to read.']}
-	school bag: {part: Noun, level: A2, states: ['a school bag, is a bag, used for carrying books, for school.']}
-	satchel: {part: Noun, level: B2, states: ['a satchel, is a large bag, used for carrying school books.']}
-	pencil case: {part: Noun, level: A2, states: ['a pencil case, is a small bag, for holding pens, pencils.']}
-	classroom: {part: Noun, level: A1, states: ['a classroom, is a room, in a school, where students have lessons.']}
-	desk: {part: Noun, level: A1, states: ['a desk, is a table, that you sit at, to write or work.']}
-	chair: {part: Noun, level: A1, states: ['a chair, is a seat, for one person, with a back.']}
-	teacher: {part: Noun, level: A1, states: ['a teacher, is a person, whose job, is to teach.']}
+	workbook: {part: Noun, level: A2}
+	notebook: {part: Noun, level: A2}
+	book: {part: Noun, level: A1}
+	school bag: {part: Noun, level: A2}
+	satchel: {part: Noun, level: B2}
+	pencil case: {part: Noun, level: A2}
+	classroom: {part: Noun, level: A1}
+	desk: {part: Noun, level: A1}
+	chair: {part: Noun, level: A1}
+	teacher: {part: Noun, level: A1}
 	
-	scissors: {part: Noun, plural: True, level: A2, states: ['scissors, is a tool, for cutting paper, hair, cloth.']}
-	glue: {part: Noun, countable: False, uncountable: True, level: A2, states: ['glue, is a substance, used to stick, things together.']}
+	scissors: {part: Noun, plural: True, level: A2}
+	glue: {part: Noun, countable: False, uncountable: True, level: A2}
 	computer: {part: Noun, level: A1}
 	mouse: {part: Noun, level: A2}
 	keyboard: {part: Noun, level: A2}
 	monitor: {part: Noun, level: B2}
-	television: {part: Noun, level: A1, states: ['a television, is an equipment, used for watching programmes.']}
-	remote control: {part: Noun, level: B1, states: ['a remote control, is an equipment, used to control television, from a distance.']}
-	mobile phone: {part: Noun, level: A1, states: ['a mobile phone, is a telephone, that you can carry, everywhere with you.']}
+	television: {part: Noun, level: A1}
+	remote control: {part: Noun, level: B1}
+	mobile phone: {part: Noun, level: A1}
 weather:
 	warm: {part: Weather}
 	hot: {part: Weather}
@@ -246,58 +246,58 @@ hobbies:
 	doing puzzles: {part: Activity, sentence: 'she likes doing puzzles.', question: 'what does she like?', answer: 'she likes doing puzzles.'}
 	playing computer games: {part: Activity, sentence: 'she likes playing computer games.', question: 'what does she like?', answer: 'she likes playing computer games.'}
 house:
-	house: {part: Noun, states: ['a house, is a building, where people live.']}
-	multi-storey building: {part: Noun, states: ['a multi-storey building, is a building, with many floors.']}
-	skyscraper: {part: Noun, states: ['a skyscraper, is a very, tall building.']}
-	flat: {part: Noun, states: ['a flat, is a set of rooms, to live in.']}
-	garden: {part: Noun, states: ['a garden, is an area of ground, belonging to a house.']}
-	fence: {part: Noun, states: ['a fence, is a wood, wire, or metal structure, that goes around an area.']}
+	house: {part: Noun}
+	multi-storey building: {part: Noun}
+	skyscraper: {part: Noun}
+	flat: {part: Noun}
+	garden: {part: Noun}
+	fence: {part: Noun}
 	
 	room: {part: Noun}
-	kitchen: {part: Room, states: ['a kitchen, is a room, used to prepare, and cook food in.']}
-	bedroom: {part: Room, states: ['a bedroom, is a room, used for sleeping in.'] }
-	bathroom: {part: Room, states: ['a bathroom, is a room, with a bath, sink.']}
-	toilet: {part: Room, states: ['a toilet, is a room, with a toilet in it.']}
-	living room: {part: Room, states: ['a living room, is a room, used for resting, watching television.']}
-	child room: {part: Room, states: ['a child room, is a room, where children sleep, and play.']}
-	hall: {part: Room, states: ['a hall, is a room, which leads to other rooms.']}
+	kitchen: {part: Room}
+	bedroom: {part: Room}
+	bathroom: {part: Room}
+	toilet: {part: Room}
+	living room: {part: Room}
+	child room: {part: Room}
+	hall: {part: Room}
 	
-	door: {part: OpenRoomPart, states: ['a door, is a part of a building, room, vehicle, or piece of furniture.', 'you open, or close a door, to get inside, or out of.']}
-	window: {part: OpenRoomPart, states: ['a window, is a space, in the wall, of a building, or vehicle, that has glass, in it.']}
-	window sill: {part: Noun, states: ['a window sill, is a shelf, at the bottom, of a window.']}
-	floor: {part: RoomPart, states: ['a floor, is a surface, that you walk on, inside a building.']}
-	ceiling: {part: RoomPart, states: ['a ceiling, is a surface, of a room, above you.']}
-	wall: {part: RoomPart, states: ['a wall, is a one of the vertical sides, of a room, or building.']}
+	door: {part: OpenRoomPart}
+	window: {part: OpenRoomPart}
+	window sill: {part: Noun}
+	floor: {part: RoomPart}
+	ceiling: {part: RoomPart}
+	wall: {part: RoomPart}
 	
-	sofa: {part: Furniture, states: ['there is a sofa, in the living room.']}
-	cupboard: {part: Furniture, states: ['we do not have cupboard, in the flat.']}
-	armchair: {part: Furniture, states: ['we do not have armchair, in the flat.']}
-	stool: {part: Furniture, states: ['there are two stools, in the kitchen.']}
-	table: {part: Furniture, states: ['there is a table, in the kitchen.']}
-	bed: {part: Furniture, states: ['there is a bed, in the bedroom','there is a bed, in the child room.']}
-	bookcase: {part: Furniture, states: ['we do not have bookcase, in the flat.']}
-	wardrobe: {part: Furniture, states: ['there is a wardrobe, in the bedroom', there is a wardrobe, in the shild room.', there is a wardrobe, in the hall.']}
-	mirror: {part: Furniture, states: ['there is a mirror, in the hall.', 'there is a mirror, in the bathroom.']}
-	bedside: {part: Furniture, states: ['there are two bedsides, in the bedroom.']}
-	chest of drawers: {part: Furniture, states: ['there is a chest of drawers, in the bedroom.', 'there is a chest of drawers, in the hall.']}
-	kitchen cabinet: {part: Furniture, states: ['there are kitchen cabinets, in the kitchen.']}
+	sofa: {part: Furniture}
+	cupboard: {part: Furniture}
+	armchair: {part: Furniture}
+	stool: {part: Furniture}
+	table: {part: Furniture}
+	bed: {part: Furniture}
+	bookcase: {part: Furniture}
+	wardrobe: {part: Furniture}
+	mirror: {part: Furniture}
+	bedside: {part: Furniture}
+	chest of drawers: {part: Furniture}
+	kitchen cabinet: {part: Furniture}
 	shelf: {part: Furniture}
 	
-	lamp: {part: Noun, states: ['a lamp, is a piece, of equipment, that produces light.']}
-	switch: {part: Noun, states: ['a switch, is a small object, to turn something electrical on or off.']}
-	socket: {part: Noun, states: ['a socket, is a piece of equipment, you connect electrical equipment.']}
-	vase: {part: Noun, states: ['a vase, is a container, that you put flowers in.']}
-	rug: {part: Noun, states: ['a rug, is a soft piece of material, used, to cover the floor.']}
-	painting: {part: Noun, states: ['a painting, is a picture, that someone has painted.']}
-	rubbish bin: {part: Noun, states: ['a rubbish bin, is a bucket, to put waste in.'], visual_source: 'data/images/house/rubbish bin.png'}
-	swing: {part: Noun, states: ['a swing, is a chair, hanging on two ropes, that children sit on, and swing backwards and forwards.']}
-	slide: {part: Noun, states: ['a slide, is a large object, that children climb, and slide down.']}
-	climbing frame: {part: Noun, states: ['a climbing frame, is a large frame, that children can climb on.']}
-	roundabout: {part: Noun, states: ['a roundabout, is an entertainment, that goes round and round, while children, sit on it.']}
-	playground: {part: Noun, states: ['a playground, is an area of land, where children can play.']}
-	tree: {part: Noun, states: ['a tree, is a tall plant, with a thick stem, that has branches, coming from it and, leaves.']}
+	lamp: {part: Noun}
+	switch: {part: Noun}
+	socket: {part: Noun}
+	vase: {part: Noun}
+	rug: {part: Noun}
+	painting: {part: Noun}
+	rubbish bin: {part: Noun, visual_source: 'data/images/house/rubbish bin.png'}
+	swing: {part: Noun}
+	slide: {part: Noun}
+	climbing frame: {part: Noun}
+	roundabout: {part: Noun}
+	playground: {part: Noun}
+	tree: {part: Noun}
 	sand: {part: Noun, countable: False, uncountable: True}
-	grass: {part: Noun, countable: False, uncountable: True, states: ['grass, is a plant, with narrow green leaves, that grows, close to the ground.']}
+	grass: {part: Noun, countable: False, uncountable: True}
 	flower: {part: Noun}
 time:
 	one o'clock: {part: Time, visual_source: 'data/images/time/analog_clock_0100.jpg'}
@@ -342,71 +342,71 @@ time:
 	summer: {part: Season}
 	autumn: {part: Season}
 feelings:
-	sleepy: {part: Feelings, states: ['sleepy. feeling tired, and wanting to go to sleep.']}
-	hungry: {part: Feelings, states: ['hungry. wanting or needing food.']}
-	thirsty: {part: Feelings, states: ['thirsty. wanting or needing a drink.']}
-	sick: {part: Feelings, states: ['sick. if you are sick, food and drink, comes up, from your stomach, and out, of your mouth.']}
-	sick: {part: Feelings, meaning: ill, visual_source: 'data/images/feelings/sick_ill.jpg', states: ['sick. if you are sick, food and drink, comes up, from your stomach, and out, of your mouth.']}
-	feel sick: {part: Feelings, states: ['feel sick. to feel, that the food, or drink, in your stomach, might come up, through your mouth.']}
-	cold: {part: Feelings, meaning: feeling, visual_source: 'data/images/feelings/cold_unfriendly.jpg', states: ['cold. having a low temperature.']}
-	cold: {part: Feelings, meaning: temperature, states: ['cold. unfriendly or showing no emotion.']}
-	hot: {part: Feelings, states: ['hot. having a high temperature.']}
-	bored: {part: Feelings, states: ['bored. feeling tired, and unhappy, because something, is not interesting, or because, you have nothing to do.']}
-	happy: {part: Feelings, states: ['happy. pleased, and in a good mood, especially, because something good has happened.']}
-	sad: {part: Feelings, states: ['sad. unhappy.']}
-	tired: {part: Feelings, states: ['tired. feeling, that you want to rest, or sleep.']}
-	angry: {part: Feelings, states: ['angry. a strong feeling, against someone, who has behaved badly, making you want to shout at them, or hurt them.']}
-	hurt: {part: Feelings, states: ['hurt. upset or unhappy.']}
-	exhausted: {part: Feelings, states: ['exhausted. very tired.']}
-	malicious: {part: Feelings, states: ['malicious. intended to harm, or upset someone.']}
-	arrogant: {part: Feelings, states: ['arrogant. believing, that you are better, or more important, than other people.']}
-	shy: {part: Feelings, states: ['shy. not confident, especially about meeting, or talking, to new people.']}
-	confident: {part: Feelings, states: ['confident. certain, about your ability, to do things well.']}
+	sleepy: {part: Feelings}
+	hungry: {part: Feelings}
+	thirsty: {part: Feelings}
+	sick: {part: Feelings}
+	sick: {part: Feelings, meaning: ill, visual_source: 'data/images/feelings/sick_ill.jpg'}
+	feel sick: {part: Feelings}
+	cold: {part: Feelings, meaning: feeling, visual_source: 'data/images/feelings/cold_unfriendly.jpg'}
+	cold: {part: Feelings, meaning: temperature}
+	hot: {part: Feelings}
+	bored: {part: Feelings}
+	happy: {part: Feelings}
+	sad: {part: Feelings}
+	tired: {part: Feelings}
+	angry: {part: Feelings}
+	hurt: {part: Feelings}
+	exhausted: {part: Feelings}
+	malicious: {part: Feelings}
+	arrogant: {part: Feelings}
+	shy: {part: Feelings}
+	confident: {part: Feelings}
 	
-	worried: {part: Feelings, states: ['worried. anxious, because you are thinking, about problems, or unpleasant things, that might happen.']}
-	surprised: {part: Feelings, states: ['surprised. feeling surprise, because something has happened, that you, did not expect.']}
-	horrified: {part: Feelings, states: ['horrified. feeling very shocked.']}
-	shocked	: {part: Feelings, states: ['shocked. feeling surprised and upset.']}
-	confused: {part: Feelings, states: ['confused. unable to think clearly, or to understand something.']}
-	enthusiastic: {part: Feelings, states: ['enthusiastic. showing enthusiasm.']}
-	scared: {part: Feelings, states: ['scared. frightened or worried.']}
-	disappointed: {part: Feelings, states: ['disappointed. unhappy, because someone, or something, was not as good as you hoped or expected, or because something did not happen.']}
-	upset: {part: Feelings, states: ['upset. unhappy or worried because something unpleasant has happened.']}
-	hysterical: {part: Feelings, states: ['hysterical. if someone is hysterical, they cannot control their feelings, or behaviour, because they are extremely frightened, angry, excited.']}
-	ashamed: {part: Feelings, states: ['ashamed. feeling guilty, or embarrassed, about something you have done.']}
-	thoughtful: {part: Feelings, states: ['thoughtful. quiet, because you are thinking about something.']}
-	frustrated: {part: Feelings, states: ['frustrated. annoyed, because things are not happening in the way that you want, or in the way that they should.']}
-	amused: {part: Feelings, states: ['amused. showing, that you think, something is funny.']}
-	curious:  {part: Feelings, states: ['curious. wanting to know or learn about something.']}
+	worried: {part: Feelings}
+	surprised: {part: Feelings}
+	horrified: {part: Feelings}
+	shocked	: {part: Feelings}
+	confused: {part: Feelings}
+	enthusiastic: {part: Feelings}
+	scared: {part: Feelings}
+	disappointed: {part: Feelings}
+	upset: {part: Feelings}
+	hysterical: {part: Feelings}
+	ashamed: {part: Feelings}
+	thoughtful: {part: Feelings}
+	frustrated: {part: Feelings}
+	amused: {part: Feelings}
+	curious:  {part: Feelings}
 professions:
-	manager: {part: Professions, states: ['manager is a person, who says other people, what to do.']}
-	accountant: {part: Professions, level: B1, states: ['accountant is a person, whose job, is to work with financial records, of a company.']}
-	coach: {part: Professions, level: B1, states: ['coach is a person, whose job, is to teach people, to improve at a sport.']}
-	vet: {part: Professions, level: B1, states: ['vet is a person, whose job, is to give medical care, to animals, that are sick, or hurt.']}
-	lawyer: {part: Professions, level: B1, states: ['lawyer is a person, whose job, is to understand the law, and deal, with legal situations.']}
-	pilot: {part: Professions, level: A2, states: ['pilot is a person, whose job, is to fly an aircraft.']}
-	photographer: {part: Professions, level: A2, states: ['photographer is a person, whose job, is to take photographs.']}
-	farmer: {part: Professions, level: A2, states: ['farmer is a person, whose job, is to grow plants and raise animals.']}
-	musician: {part: Professions, level: B1, states: ['musician is a person, whose job, is to plays a musical instrument.']}
-	waiter: {part: Professions, level: A1, states: ['waiter is a man, who works in a restaurant, bringing food to customers.']}
-	waitress: {part: Professions, level: A1, states: ['waitress is a woman, who works in a restaurant, bringing food to customers.']}
-	fireman: {part: Professions, level: A2, states: ['fireman is a person, whose job is to stop fires burning.']}
-	doctor: {part: Professions, level: A1, states: ['doctor is a person, whose job, is to treat people, who have an illness, or injury.']}
-	nurse: {part: Professions, level: A2, states: ['nurse is a person, whose job, is to care for sick, and injured people.']}
-	cook: {part: Professions, level: A2, states: ['cook is a person, whose job, is to prepare, and cook food.']}
-	policeman: {part: Professions, level: A2, states: ['policeman is a person, whose job, is to make people obey the law.']}
-	judge: {part: Professions, level: B2, states: ['judge is a person, whose job, is to decide, how criminals should be punished.']}
-	mechanic: {part: Professions, level: A2, states: ['mechanic is a person, whose job, is to repair machines.']}
-	teacher: {part: Professions, level: A1, states: ['teacher is a person, whose job, is to teach, in a school, university.'], visual_source: 'data/images/school/teacher.jpg'}
-	engineer: {part: Professions, level: A2, states: ['engineer is a person, whose job, is to  design, build, or repair machines, constructions.']}
-	software engineer: {part: Professions, level: A2, states: ['software engineer is a person, whose job, is to create computer programs.']}
-	IT engineer: {part: Professions, level: A2, states: ['it engineer is a person, whose job, is to support computer systems.']}
-	artist: {part: Professions, states: ['artist is person who creates paintings and drawings.']}
-	cashier: {part: Professions, level: A2, states: ['cashier is a person, whose job, is to receive, and pay out money, in a shop.']}
-	seller: {part: Professions, level: B1, states: ['seller is a person, whose job, is to sell something.']}
-	miner: {part: Professions, level: B2, states: ['miner is  person, who works in a mine.']}
-	driver: {part: Professions, level: A1, states: ['driver is a person, who drives a vehicle.']}
-	house wife: {part: Professions, level: A2, states: ['house wife is a woman, who stays at home, to cook, clean, and take care of her family.']}
+	manager: {part: Professions}
+	accountant: {part: Professions, level: B1}
+	coach: {part: Professions, level: B1}
+	vet: {part: Professions, level: B1}
+	lawyer: {part: Professions, level: B1}
+	pilot: {part: Professions, level: A2}
+	photographer: {part: Professions, level: A2}
+	farmer: {part: Professions, level: A2}
+	musician: {part: Professions, level: B1}
+	waiter: {part: Professions, level: A1}
+	waitress: {part: Professions, level: A1}
+	fireman: {part: Professions, level: A2}
+	doctor: {part: Professions, level: A1}
+	nurse: {part: Professions, level: A2}
+	cook: {part: Professions, level: A2}
+	policeman: {part: Professions, level: A2}
+	judge: {part: Professions, level: B2}
+	mechanic: {part: Professions, level: A2}
+	teacher: {part: Professions, level: A1, visual_source: 'data/images/school/teacher.jpg'}
+	engineer: {part: Professions, level: A2}
+	software engineer: {part: Professions, level: A2}
+	IT engineer: {part: Professions, level: A2}
+	artist: {part: Professions}
+	cashier: {part: Professions, level: A2}
+	seller: {part: Professions, level: B1}
+	miner: {part: Professions, level: B2}
+	driver: {part: Professions, level: A1}
+	house wife: {part: Professions, level: A2}
 prepositions:
 	in: {part: Noun}
 	on: {part: Noun}

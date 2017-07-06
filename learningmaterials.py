@@ -229,7 +229,7 @@ class Catalog (dict):
                     text_sentence = ' '.join(map(eval,states_method_list))
                     text_answer = ' '.join(map(eval,answer_method_list))
 
-                    print (text_sentence, text_answer)
+                    #print (text_sentence, text_answer)
 
                     li = languageitem.Word (word)
                     dialog.append ( Sentence([None,

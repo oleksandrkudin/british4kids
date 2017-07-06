@@ -194,6 +194,9 @@ Builder.load_string("""
         ButtonImage:
             source: 'data/images/oleksandr.png'
             on_press: root.init_student('Oleksandr')
+        ButtonImage:
+            source: 'data/sasha.jpg'
+            on_press: root.init_student('Sasha')
 <ScenariosScreen>:
     id: scenario_screen
     GridLayout:
