@@ -102,6 +102,7 @@ class Catalog (dict):
         dict.__init__ (self)
         self['vocabulary'] = {}
         self['dialogs'] = {}
+        self['interactions'] = {}
         self['memory'] = {}
         self['remember'] = {}
     def load_vocabulary (self, topic, dict_data = dict_txt_nouns):
@@ -180,7 +181,7 @@ class Catalog (dict):
         if student:
             persons['student'] = persons[person_by_name(persons, student.name)]
         
-        self['interactions'] = {}
+        #self['interactions'] = {}
         sentences = dict_data[interation_name]['interaction']
         dialog = Dialog()
         self['interactions'][interation_name] = dialog
@@ -342,57 +343,7 @@ class RememberGame (list):
 catalog = Catalog ()
 
 
-"""
-catalog = {}
-catalog['vocabulary'] = {}
 
-
-#
-#ADD NOUNS TO CATALOG 
-#
-for topic, words in dict_txt_nouns.items():
-    catalog['vocabulary'][topic] = {}
-    for i_word, i_parameters in words.items():
-        part = i_parameters.pop('part')
-        text_sentence = i_parameters.pop('sentence',None)
-        text_question = i_parameters.pop('question',None)
-        text_answer = i_parameters.pop('answer',None)
-        visual_source = i_parameters.pop('visual_source','')
-        
-        audio_source = 'data/sounds/%s/%s.mp3' % (topic,i_word)
-        visual_source_file = 'data/images/%s/%s.jpg' % (topic,i_word)
-        visual_source = visual_source if visual_source or not os.path.exists(visual_source_file) else visual_source_file
-        
-        li = languageitem.__dict__[part](i_word,audio_source,**i_parameters)
-        lm = Sentence ([StatementFrame (li, text_sentence if text_sentence else li.sentence()),
-                        QuestionFrame (li, text_question if text_question else li.question(), text_answer if text_answer else li.answer())
-            ], visual_source)
-
-        catalog['vocabulary'][topic][li] = lm
-
-
-#
-#LOAD DIALOGS TO CATALOG
-#
-catalog['dialogs'] = {}
-for dialog_name, sentences in dict_txt_dialogs.items():
-    dialog = Dialog()
-    catalog['dialogs'][dialog_name] = dialog
-    for i_sentence in sentences:
-        i_word = i_sentence['word']
-        text_sentence = i_sentence.pop('text',None)
-        text_answer = i_sentence.pop('answer',None)
-        visual_source = i_sentence.pop('visual_source','')
-
-        li = languageitem.Word (i_word)
-
-        dialog.append ( Sentence([None,
-                                  QuestionFrame (li, text_sentence, text_answer)
-            ], visual_source) )
-        #print (dialog[-1])
-
-
-"""
 
 if __name__ == '__main__':
     notebook1 = languageitem.Noun ('notebook', audio_source = r'data/sounds/school/notebook.mp3', countable=True, meaning='book')

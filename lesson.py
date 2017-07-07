@@ -1,3 +1,7 @@
+"""
+
+"""
+
 import tools
 import learningmaterials
 from student import *
@@ -37,6 +41,13 @@ approach = [[[0, 0.19], 0.5],
 
 
 class Lesson ():
+    """
+    Lesson is a set of excercies based on learning material with proper activity
+        learning material == data (text with variation, audio, visual)
+            text with variation???
+        activity == Action (verb)
+    Lesson is just a Set of N (LearningItem, Learning Material, Activity) elements related to scenario and approach from learningmaterials  with proper order for Student
+"""
     def __init__ (self, student, scenario, learningmaterials, approach, count = 1):
         #print ('learningmaterials:',learningmaterials)
         if scenario == 'vocabulary':
