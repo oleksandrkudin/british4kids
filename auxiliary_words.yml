@@ -1,0 +1,20 @@
+auxiliary:
+	this: {part: Pronoun, level: A2, pluralform: these}
+	be: {part: ToBe, level: A1}
+	do: {part: ToDo, level: A1}
+	what: {part: Pronoun, level: A1}
+	which: {part: Pronoun, level: A1}
+	when: {part: Pronoun, level: A1}
+	where: {part: Pronoun, level: A1}
+	colour: {part: Noun, level: A1}
+	the: {part: DefiniteArticle, level: A1}
+persons:
+	olya: {part: Person, name: Olya, visual_source: 'data/olya.jpg', age: three, sex: female, country: Ukraine, nationality: ukrainian, 'favourite colour': yellow, 'favourite drink': 'orange juice'}
+	sasha: {part: Person, name: Sasha, visual_source: 'data/sasha.jpg', age: three, sex: male, country: Ukraine, nationality: ukrainian, 'favourite colour': green, 'favourite drink': 'orange juice'}
+	sophia: {part: Person, name: Sophia, visual_source: 'data/sophia.jpg', age: five, sex: female, country: Ukraine, nationality: ukrainian, 'favourite colour': red, 'favourite drink': 'compote'}
+	oleksandr: {part: Person, name: Oleksandr, visual_source: 'data/images/oleksandr.png', age: 'thirty six', sex: male, country: Ukraine, nationality: ukrainian, 'favourite colour': blue, 'favourite drink': 'water'}
+	andreas: {part: Person, name: Andreas, visual_source: 'data/images/persons/andreas.jpg', age: 'seven', sex: male, country: Greece, nationality: greek, 'favourite colour': green, 'favourite drink': 'milk'}
+	dona: {part: Person, name: Dona, visual_source: 'data/images/persons/dona.jpg', age: 'eight', sex: female, country: Italy, nationality: italian, 'favourite colour': orange, 'favourite drink': 'pineapple juice'}
+	eva: {part: Person, name: Eva, visual_source: 'data/images/persons/eva.jpg', age: 'nine', sex: female, country: Argentina, nationality: argentinian, 'favourite colour': white, 'favourite drink': 'hot chocolate'}
+	filipe: {part: Person, name: Filipe, visual_source: 'data/images/persons/filipe.jpg', age: 'ten', sex: male, country: Portugal, nationality: portuguese, 'favourite colour': brown, 'favourite drink': 'apple juice'}
+	max: {part: Person, name: Max, visual_source: 'data/images/persons/max.jpg', age: 'eleven', sex: male, country: Britain, nationality: british, 'favourite colour': black, 'favourite drink': 'lemonade'}

@@ -88,6 +88,22 @@ clothes:
 	sweatshirt: {part: Clothes, level: B1}
 	shorts: {part: Clothes, plural: True, level: A2}
 	sports trousers: {part: Clothes, plural: True, level: A1}
+	
+	flip-flops: {part: Clothes, plural: True, level: A2}
+	trainers: {part: Clothes, plural: True, level: A2}
+	underpants: {part: Clothes, plural: True, level: A2}
+	headscarf: {part: Clothes, level: A2}
+	swimming costume: {part: Clothes, level: A2}
+	swimming trunks: {part: Clothes, plural: True, level: A2}
+clothes accessories:
+	belt: {part: Noun, level: A2}
+	watch: {part: Noun, level: A1}
+	bag: {part: Noun, level: A1}
+	glasses: {part: Noun, level: A1}
+	sunglasses: {part: Noun, level: A2}
+	necklace: {part: Noun, level: A2}
+	ring: {part: Noun, level: A2}
+	bracelet: {part: Noun, level: B1}
 food:
 	meat: {part: FoodHungry, countable: False, uncountable: True, level: A1}
 	fish: {part: FoodHungry, countable: False, uncountable: True, meaning: food, level: A1}
@@ -101,6 +117,7 @@ food:
 	bread: {part: EatableFood, countable: False, uncountable: True, level: A1}
 	sandwich: {part: FoodHungry, level: A1}
 	spaghetti: {part: FoodHungry, countable: False, uncountable: True, level: A2}
+	vermicelli: {part: FoodHungry, countable: False, uncountable: True, level: A2}
 	pasta: {part: FoodHungry, countable: False, uncountable: True, level: A2}
 	rice: {part: FoodHungry, countable: False, uncountable: True, level: A2}
 	buckwheat: {part: FoodHungry, countable: False, uncountable: True, level: A2}
@@ -108,8 +125,42 @@ food:
 	fried potatoes: {part: FoodHungry, countable: False, uncountable: True, level: A2}
 	fried egg: {part: FoodHungry, countable: True, uncountable: True, level: A1}
 	omelette: {part: FoodHungry, countable: True, level: A2}
+	salad: {part: FoodHungry, countable: True, uncountable: True, level: A2}
+	greens: {part: FoodHungry, countable: False, plural: True, level: A2}
+	
+	pizza: {part: FoodHungry, countable: True, level: A2}
+	cottage cheese: {part: EatableFood, uncountable: True, level: A2}
+	bun: {part: EatableFood, countable: True, level: A2}
+	bagel: {part: EatableFood, countable: True, level: A2}
+	jam: {part: EatableFood, countable: False, level: A2}
+	honey: {part: EatableFood, countable: False, level: A2}
+	
+	nut:
+	walnut:
+	peanut:
+	hazelnut:
+	
+	seeds:
+	sunflower seeds
+	pumpkin seeds
+	
+	sour cream:
+	
+	cereal:
+	oats cereal:
+	grits:
+	
+	crisps: {part: FoodHungry, countable: True, level: A2, plural: True}
+	
+	herbs and spices:
+	pepper:
+	solt:
+	sugar:
+	
 	water: {part: DrinkThirsty, countable: False, uncountable: True, level: A1}
+	mineral water: {part: DrinkThirsty, countable: False, uncountable: True, level: A2}
 	milk: {part: Drinks, countable: False, uncountable: True, level: A1}
+	yoghurt: {part: Drinks, countable: True, uncountable: True, level: A2}
 	juice: {part: DrinkThirsty, countable: False, uncountable: True, level: A1}
 	tea: {part: DrinkThirsty, countable: False, uncountable: True, level: A1}
 	coffee: {part: Drinks, countable: False, uncountable: True, level: A1}
@@ -275,6 +326,7 @@ house:
 	stool: {part: Furniture}
 	table: {part: Furniture}
 	bed: {part: Furniture}
+	bunk beds: {part: Furniture}
 	bookcase: {part: Furniture}
 	wardrobe: {part: Furniture}
 	mirror: {part: Furniture}

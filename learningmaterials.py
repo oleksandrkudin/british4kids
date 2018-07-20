@@ -75,6 +75,7 @@ class Sentence (TextLearningMaterial):
         list.__init__ (self, learning_frames)
         LearningMaterial.__init__ (self, visual_source)
     def get_frame (self, learning_activity):
+        #return frame one by one (yield) what satisfy learning_activities
         if 'repeat' in learning_activity and 'answer' in learning_activity: return self.get_interator (slice(len(self)))
         elif 'repeat' in learning_activity: return self.get_interator (slice(0,1))
         elif 'answer' in learning_activity: return self.get_interator (slice(1,len(self)))
@@ -98,6 +99,9 @@ class Story (TextLearningMaterial):
 
 
 class Catalog (dict):
+    """
+    ['vocabulary']['topic'][language_item] = learning_material
+    """
     def __init__ (self):
         dict.__init__ (self)
         self['vocabulary'] = {}
